@@ -14,11 +14,12 @@ function useDate() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      return setCurrentDate(new Date());
+      setCurrentDate(new Date());
     }, 1000);
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
-
   return currentDate;
 }
 
