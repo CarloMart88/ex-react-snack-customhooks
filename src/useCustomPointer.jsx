@@ -10,7 +10,7 @@ Posiziona il componente al posto del puntatore del mouse.
 Il componente segue i movimenti del mouse.
 Esempio di utilizzo:
  */
-function useCustomPointer() {
+function useCustomPointer(component) {
   const [customPointer, setCustomPointer] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -20,6 +20,18 @@ function useCustomPointer() {
     document.addEventListener("mousemove", updateMovement);
     return () => document.removeEventListener("mousemove", updateMovement);
   }, []);
+  return (
+    <span
+      style={{
+        position: "fixed",
+        top: customPointer.y,
+        left: customPointer.x,
+        cursor: "none",
+      }}
+    >
+      {component}
+    </span>
+  );
 }
 
 export default useCustomPointer;
