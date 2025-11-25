@@ -1,11 +1,13 @@
 import useSwitch from "./useSwitch";
 import useDate from "./useDate";
+import useCustomPointer from "./useCustomPointer";
 import { useState } from "react";
 import dayjs from "dayjs";
 
 function App() {
   const [isOn, toggle] = useSwitch();
   const currentDate = useDate();
+  const customPointer = useCustomPointer("🔥");
 
   return (
     <>
